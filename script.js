@@ -109,3 +109,47 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// -----------------------------
+// Backend Form Submission
+// -----------------------------
+const form = document.querySelector('.contact-form');
+
+if (form) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const payload = {
+      name: document.querySelector('#name').value.trim(),
+      email: document.querySelector('#email').value.trim(),
+      phone: document.querySelector('#phone').value.trim(),
+      location: document.querySelector('#location').value.trim(),
+      details: document.querySelector('#details').value.trim()
+    };
+
+    // Frontend validation
+    if (!payload.name || !payload.email || !payload.phone || !payload.details) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3001/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Thank you! Your request has been submitted.");
+        form.reset();
+      } else {
+        alert("There was an issue: " + result.message);
+      }
+    } catch (err) {
+      alert("Server unreachable. Please try again later.");
+    }
+  });
+}
