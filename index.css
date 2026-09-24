@@ -112,6 +112,12 @@ header,
   gap: 0.75rem;
 }
 
+.hero-location {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
 .btn-primary,
 .btn-secondary {
   display: inline-flex;
@@ -241,10 +247,6 @@ header,
   border: 1px solid var(--border-soft);
 }
 
-.section-light .card h3 {
-  margin-top: 0;
-}
-
 .card h3 {
   margin: 0 0 0.5rem;
   font-size: 1.1rem;
@@ -253,6 +255,81 @@ header,
 .card p {
   margin: 0;
   color: var(--muted);
+}
+
+/* Pricing */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.pricing-card {
+  background-color: rgba(15, 23, 42, 0.95);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  position: relative;
+}
+
+.pricing-featured {
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px rgba(234, 179, 8, 0.25);
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #111827;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.pricing-amount {
+  margin: 0.4rem 0 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-soft);
+}
+
+.pricing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.8rem;
+  color: #cbd5f5;
+  font-size: 0.9rem;
+}
+
+.pricing-list li {
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.pricing-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-soft);
+}
+
+.pricing-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.pricing-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #9ca3af;
 }
 
 /* Gallery */
@@ -264,7 +341,7 @@ header,
 }
 
 .gallery-item {
-  background-color: rgba(15, 23, 42, 0.9);
+  background-color: var(--card-bg);
   border-radius: var(--radius-md);
   padding: 1rem;
   box-shadow: var(--shadow-card);
@@ -330,6 +407,11 @@ header,
   background-color: var(--accent);
 }
 
+.about-extra {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
 /* Contact form */
 
 .contact-form {
@@ -384,6 +466,13 @@ textarea:focus {
   background-color: #020617;
 }
 
+.contact-note {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
 /* Footer */
 
 .footer {
@@ -417,5 +506,9 @@ textarea:focus {
   .nav {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
